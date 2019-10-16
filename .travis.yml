@@ -7,7 +7,7 @@ services:
 
 #build the container before test the container
 before_install:
-  - docker build -t test -f Dockerfile.dev .
+  - docker build -t nuarredza/simple-react-docker -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true nuarredza/simple-react-docker npm run test
