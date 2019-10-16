@@ -1,0 +1,13 @@
+language: generic 
+#need super user permission
+sudo: required
+#required copy of docker
+services:
+  - docker
+
+#build the container before test the container
+before_install:
+  - docker build -t Anuarredza/simple-react-docker -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true Anuarredza/simple-react-docker npm run test
